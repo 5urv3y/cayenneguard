@@ -1,0 +1,11 @@
+ip-blacklist{
+  #255.255.0.1
+  #192.168.1.95
+}
+
+ports{
+  #Open port 80 on tcp
+  80 {tcp} 
+  #Open port 22 to tcp, and lock connections from an ip address for one minute if ssh sign in is failed three times.
+  22 {tcp, ssh_drop{60, 3}}
+}
